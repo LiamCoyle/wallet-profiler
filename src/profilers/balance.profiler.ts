@@ -1,16 +1,20 @@
 import Web3 from "web3";
-import * as dotenv from "dotenv";
-dotenv.config();
 
-const infuraNodeUrl = process.env.INFURA_LINK;
+const coingeckoApi = require("../api/coingecko.api");
+const zapperApi = require("../api/zapper.api");
 
-const web3 = new Web3(infuraNodeUrl!); // Connect to an Ethereum node
+const web3 = new Web3(process.env.INFURA_LINK!); // Connect to an Ethereum node
 
 const balanceProfiler = {
   async getWalletInfo(walletAddress: string) {
     const balance = await web3.eth.getBalance(walletAddress);
 
     const txCount = await web3.eth.getTransactionCount(walletAddress);
+    //const coinList = await coingeckoApi.getCoinList();
+
+    const balances = await zapperApi.getBalances(walletAddress);
+
+    console.log(balances);
 
     /*const contractCode = await web3.eth.getCode(walletAddress);
     if (contractCode !== "0x") {

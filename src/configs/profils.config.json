@@ -1,5 +1,15 @@
 {
-  "degen": {},
+  "degen": {
+    "txCountMax": 100,
+    "txCountMin": 10,
+    "recurrentFactor": 0.1,
+    "averageTxAmoutMin": 100,
+    "averageTxAmoutMax": 1000,
+    "averageHoldTimeMin": 100,
+    "averageHoldTimeMax": 1000,
+    "pnlMin": -80,
+    "pnlMax": 2000
+  },
   "smart_money": {},
   "nft_collector": {},
   "lper": {},
